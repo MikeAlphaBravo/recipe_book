@@ -13,7 +13,7 @@
       <% @ingredients.each do |ingredient| %>
         <div class='checkbox'>
           <label>
-            <input type='checkbox' name='ingredient_ids[]' value='<% ingredient.id %>'> <%= ingredient.item %>
+            <input type='checkbox' name='ingredient_ids[]' value='<%= ingredient.id %>'> <%= ingredient.item %>
           </label>
         </div>
       <% end %>

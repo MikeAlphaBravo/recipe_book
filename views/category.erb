@@ -1,0 +1,10 @@
+<h1><%= @tag.category %></h1>
+
+<h4>These are the recipes within <%= @tag.category %></h4>
+<div>
+  <% @tag.recipes.each do |recipe| %>
+    <li><%= recipe.name %></li>
+  <% end %>
+</div>
+
+<a href='/'>Take me home tonight</a>

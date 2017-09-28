@@ -1,5 +1,5 @@
 class Ingredient < ActiveRecord::Base
-  belongs_to :recipe
-  has_many :recipes
+  has_many :foods
+  has_many :recipes, through: :foods
   validates(:item, :presence => true)
 end

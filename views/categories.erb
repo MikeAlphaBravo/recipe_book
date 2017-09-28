@@ -5,7 +5,7 @@
     <% @tags.each do |tag| %>
     <div class="row">
       <div class="col-md-3">
-        <li><%= tag.category %></li>
+        <li><a href="/category/<%= tag.id %>"><%= tag.category %></a></li>
       </div>
       <div class="col-md-9">
          <a href='/category/edit/<%= tag.id %>'>EDIT |</a> <a href='/category/delete/<%= tag.id %>'>DELETE</a>

@@ -1,0 +1,17 @@
+<h1><%= @recipe.name %></h1>
+
+<h4>These are the Ingredients and Categories of the <%= @recipe.name %> recipe</h4>
+<p>Ingredients</p>
+<div>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.item %></li>
+  <% end %>
+</div><br>
+<p>Categories</p>
+<div>
+  <% @recipe.tags.each do |tag| %>
+    <li><%= tag.category %></li>
+  <% end %>
+</div><br>
+
+<a href='/'>Take me home tonight</a>

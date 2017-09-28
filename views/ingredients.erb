@@ -5,7 +5,7 @@
     <% @ingredients.each do |ingredient| %>
       <div class="row">
         <div class="col-md-3">
-          <li><%= ingredient.item %></li>
+          <li><a href="/ingredient/<%= ingredient.id %>"><%= ingredient.item %></a></li>
         </div>
         <div class="col-md-9">
            <a href='/ingredient/edit/<%= ingredient.id %>'>EDIT |</a> <a href='/ingredient/delete/<%= ingredient.id %>'>DELETE</a>
