@@ -1,7 +1,38 @@
 <h1>Create Recipe</h1>
+
 <form action="/recipe/create" method="post">
-  <label for="name">Name your recipe</label>
-  <input type="text" name="name" placeholder="Javi's famous jabenero sauce"><br>
+
+  <div>
+    <label for="name">Name your recipe</label>
+    <input class='form-control' type="text" name="name" placeholder="Javi's famous jabenero sauce"><br>
+  </div><br>
+
+  <h4>Add Ingredient(s) to your recipe:</h4>
+  <% if @ingredients.any? %>
+    <div>
+      <% @ingredients.each do |ingredient| %>
+        <div class='checkbox'>
+          <label>
+            <input type='checkbox' name='ingredient_ids[]' value='<% ingredient.id %>'> <%= ingredient.item %>
+          </label>
+        </div>
+      <% end %>
+    </div>
+  <% end %><br>
+
+  <h4>Assign Category(s):</h4>
+  <% if @tags.any? %>
+    <div>
+      <% @tags.each do |tag| %>
+        <div class='checkbox'>
+          <label>
+            <input type='checkbox' name='tag_ids[]' value='<% tag.id %>'> <%= tag.category %>
+          </label>
+        </div>
+      <% end %>
+    </div>
+  <% end %><br>
+
   <button type="submit" class='btn btn-info'>Create!</button><br>
   <a href='/'>Take me home tonight</a>
 </form>

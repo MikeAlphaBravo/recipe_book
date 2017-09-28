@@ -2,19 +2,19 @@
   <h1>Cook Book</h1>
 </div>
 
-<h2>Categories</h2>
+<h2><a href='/categories'>Categories</a></h2>
 <% @tags.each do |tag| %>
-  <li><%=tag.catergory%></li>
+  <li><%=tag.category%></li>
 <% end %>
 <a href='/category/create'>Add a Category</a>
 
-<h2>Recipes</h2>
+<h2><a href='/recipes'>Recipes</a></h2>
 <% @recipes.each do |recipe| %>
   <li><%=recipe.name%></li>
 <% end %>
 <a href='/recipe/create'>Add a Recipe</a>
 
-<h2>Ingredients</h2>
+<h2><a href='/ingredients'>Ingredients</a></h2>
 <% @ingredients.each do |ingredient| %>
   <li><%=ingredient.item%></li>
 <% end %>

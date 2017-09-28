@@ -2,20 +2,21 @@
 <form action="/category/create" method="post">
   <div class='form-group'>
     <label for="category">Enter a category</label>
-    <input type="text" name="category" placeholder='Mexican'><br>
+    <input class='form-control' type="text" name="category" placeholder='Mexican'><br>
   </div>
 
-  <div class='form-control'>
+  <h4>Select Recipe(s) to add to this category:</h4>
+  <div>
     <% if @recipes.any? %>
       <% @recipes.each do |recipe| %>
         <div class='checkbox'>
           <label>
-            <input type='checkbox' name='recipe_ids[]' value='<% recipe.id %>'><%= recipe.name %>
+            <input type='checkbox' name='recipe_ids[]' value='<% recipe.id %>'> <%= recipe.name %>
           </label>
         </div>
       <% end %>
     <% end %>
-  </div>
+  </div><br>
 
   <button type="submit" class='btn btn-info'>Create!</button><br>
   <a href='/'>Take me home tonight</a>

@@ -1,0 +1,18 @@
+<h1>Categories</h1>
+
+<div>
+  <% if @tags.any? %>
+    <% @tags.each do |tag| %>
+    <div class="row">
+      <div class="col-md-3">
+        <li><%= tag.category %></li>
+      </div>
+      <div class="col-md-9">
+         <a href='/category/edit/<%= tag.id %>'>EDIT |</a> <a href='/category/delete/<%= tag.id %>'>DELETE</a>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div><br>
+
+<a href='/'>Take me home tonight</a>

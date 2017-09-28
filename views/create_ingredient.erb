@@ -1,7 +1,23 @@
 <h1>Create Ingredient</h1>
 <form action="/ingredient/create" method="post">
-  <label for="item">Enter an Ingredient</label>
-  <input type="text" name="item" placeholder='Zuchini'><br>
+  <div>
+    <label for="item">Enter an Ingredient</label>
+    <input class='form-control' type="text" name="item" placeholder='Zuchini'><br>
+  </div>
+
+  <h4>Select Recipe(s) to add Ingredient to:</h4>
+  <div>
+    <% if @recipes.any? %>
+      <% @recipes.each do |recipe| %>
+        <div class='checkbox'>
+          <label>
+            <input type='checkbox' name='recipe_ids[]' value='<% recipe.id %>'> <%= recipe.name %>
+          </label>
+        </div>
+      <% end %>
+    <% end %>
+  </div><br>
+
   <button type="submit" class='btn btn-info'>Create!</button><br>
   <a href='/'>Take me home tonight</a>
 </form>

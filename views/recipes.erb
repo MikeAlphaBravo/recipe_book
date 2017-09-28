@@ -1,0 +1,18 @@
+<h1>Recipes</h1>
+
+<div>
+  <% if @recipes.any? %>
+    <% @recipes.each do |recipe| %>
+      <div class="row">
+        <div class="col-md-3">
+          <li><%= recipe.name %></li>
+        </div>
+        <div class="col-md-9">
+          <a href='/recipe/edit/<%= recipe.id %>'>EDIT |</a> <a href='/recipe/delete/<%= recipe.id %>'>DELETE</a>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div><br>
+
+<a href='/'>Take me home tonight</a>

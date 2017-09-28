@@ -1,0 +1,18 @@
+<h1>Ingredients</h1>
+
+<div>
+  <% if @ingredients.any? %>
+    <% @ingredients.each do |ingredient| %>
+      <div class="row">
+        <div class="col-md-3">
+          <li><%= ingredient.item %></li>
+        </div>
+        <div class="col-md-9">
+           <a href='/ingredient/edit/<%= ingredient.id %>'>EDIT |</a> <a href='/ingredient/delete/<%= ingredient.id %>'>DELETE</a>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div><br>
+
+<a href='/'>Take me home tonight</a>
