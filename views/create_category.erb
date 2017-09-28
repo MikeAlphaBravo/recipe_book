@@ -1,7 +1,22 @@
 <h1>Create Category</h1>
 <form action="/category/create" method="post">
-  <label for="category">Enter a category</label>
-  <input type="text" name="category" placeholder='Mexican'><br>
+  <div class='form-group'>
+    <label for="category">Enter a category</label>
+    <input type="text" name="category" placeholder='Mexican'><br>
+  </div>
+
+  <div class='form-control'>
+    <% if @recipes.any? %>
+      <% @recipes.each do |recipe| %>
+        <div class='checkbox'>
+          <label>
+            <input type='checkbox' name='recipe_ids[]' value='<% recipe.id %>'><%= recipe.name %>
+          </label>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
   <button type="submit" class='btn btn-info'>Create!</button><br>
   <a href='/'>Take me home tonight</a>
 </form>
