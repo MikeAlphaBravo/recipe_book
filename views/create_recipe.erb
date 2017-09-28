@@ -26,7 +26,7 @@
       <% @tags.each do |tag| %>
         <div class='checkbox'>
           <label>
-            <input type='checkbox' name='tag_ids[]' value='<% tag.id %>'> <%= tag.category %>
+            <input type='checkbox' name='tag_ids[]' value='<%= tag.id %>'> <%= tag.category %>
           </label>
         </div>
       <% end %>
