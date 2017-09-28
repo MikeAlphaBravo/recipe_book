@@ -57,8 +57,14 @@ post('/recipe/create') do
   tag_ids = params['tag_ids']
   ingredient_ids = params['ingredient_ids']
   name = params['name']
-  Recipe.create({:name => name, :tag_ids => tag_ids, :ingredient_ids => ingredient_ids})
-  redirect('/recipes')
+  if Recipe.create({:name => name, :tag_ids => tag_ids, :ingredient_ids => ingredient_ids}).id
+    redirect('/recipes')
+  else
+    @not_saved = true
+    @tags = Tag.all
+    @ingredients = Ingredient.all
+    erb(:create_recipe)
+  end
 end
 
 get ('/recipe/delete/:id') do
@@ -69,6 +75,16 @@ end
 get('/recipe/:id') do
   @recipe = Recipe.find(params['id'])
   erb(:recipe)
+end
+
+post('/search') do
+  search = params['search']
+  result = Recipe.where("name ILIKE ?", "%#{params['search']}%")
+  if result[0]
+    redirect("/recipe/#{result[0].id}")
+  else
+    redirect('/')
+  end
 end
 ##########################################################################
 get('/ingredient/create') do

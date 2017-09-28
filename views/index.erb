@@ -1,21 +1,27 @@
 <div class="jumbotron">
-  <h1>Cook Book</h1>
+  <h1>Libro de cocina de Javi</h1>
 </div>
 
 <h2><a href='/categories'>Categories</a></h2>
 <% @tags.each do |tag| %>
   <li><%=tag.category%></li>
 <% end %>
-<a href='/category/create'>Add a Category</a>
+<a href='/category/create'>Add a Category</a><br>
 
 <h2><a href='/recipes'>Recipes</a></h2>
 <% @recipes.each do |recipe| %>
   <li><%=recipe.name%></li>
 <% end %>
-<a href='/recipe/create'>Add a Recipe</a>
+<a href='/recipe/create'>Add a Recipe</a><br>
 
 <h2><a href='/ingredients'>Ingredients</a></h2>
 <% @ingredients.each do |ingredient| %>
   <li><%=ingredient.item%></li>
 <% end %>
-<a href='/ingredient/create'>Add an Ingredient</a>
+<a href='/ingredient/create'>Add an Ingredient</a><br>
+
+
+<form action="/search" method="post">
+  <label for="search">Search for a recipe</label>
+  <input type="text" name="search">
+</form>

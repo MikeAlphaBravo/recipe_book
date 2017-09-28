@@ -5,6 +5,7 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :foods
 
   validates(:name, :presence => true)
+  validates :name, uniqueness: { case_sensitive: false }
   before_save(:titlecase_name)
 
 private
